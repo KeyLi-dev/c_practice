@@ -16,6 +16,9 @@ e. 打印结果。*/
 
 typedef double doub;
 
+doub get_avg(const doub *pst,int n);
+doub get2_avg(const doub pst[][TWO_INDEX], int one_index, int two_index)
+
 struct number {
     doub arr1[TWO_INDEX];
     doub arr2[TWO_INDEX];
@@ -157,3 +160,58 @@ int main(void) {
     return 0;
     
 }
+
+/*doub get_avg(const doub *pst,int n) {
+    doub sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        sum += *(pst+i);
+    }
+    return sum / n;
+}
+
+// 必须指定列数 TWO_INDEX
+doub get2_avg(const doub pst[][TWO_INDEX], int one_index, int two_index)
+{
+    doub sum = 0.0;
+    for (int i = 0; i < one_index; i++)
+    {
+        for (int x = 0; x < two_index; x++)
+        {
+            sum += pst[i][x];
+        }
+    }
+    return sum / (one_index * two_index);
+}
+
+#define TWO_INDEX 5
+typedef double doub;
+
+// 行指针版本，等价于你上面的 pst[][TWO_INDEX]
+doub get2_avg(doub (*p)[TWO_INDEX], int one_index, int two_index)
+{
+    doub sum = 0.0;
+    for (int i = 0; i < one_index; i++)
+    {
+        // *(p+i) 拿到第 i 行的首地址（一级指针）
+        doub *line = *(p + i);
+        for (int x = 0; x < two_index; x++)
+        {
+            sum += *(line + x); // 指针偏移取值
+            // 等价 sum += p[i][x];
+        }
+    }
+    return sum / (one_index * two_index);
+}
+
+typedef double doub;
+
+doub get2_avg(const doub *p, int rows, int cols)
+{
+    doub sum = 0.0;
+    int total = rows * cols;
+    for(int k = 0; k < total; k++)
+    {
+        sum += *(p + k);
+    }
+    return sum / total;
+}*/
