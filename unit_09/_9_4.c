@@ -78,12 +78,28 @@ double harmonic(double a, double b)
 要不要我再给你写一份完整可运行的整个程序（带输入输出）？*/
 
 #include <stdio.h>
-
-void input_value(double *pst) {
-    puts("请输入两个实数：");
-    while (1) {
-        scanf("%lf",pst);
-        pst++;
-
+#include <stdlib.h>
+    
+void input(double **ppst1,double **ppst2) {
+    for (int i = 0; i < 1; i++) {
+        if (scanf("%lf",*ppst1) == 1) {
+            if (scanf("%lf",*ppst2) != 1) {
+                exit(EXIT_FAILURE);
+            }
+        }
     }
+}
+
+double avg_value(double **ppst1,double **ppst2) {
+    double avg = ((1 / **ppst1) + (1 / **ppst2)) / 2;
+    return 1 / avg;
+}
+
+int main(void) {
+    double value1 = 0.0,value2 = 0.0;
+    double *pst1 = &value1,*pst2 = &value2;
+    input(&pst1,&pst2);
+    double avg = avg_value(&pst1,&pst2);
+    printf("avg = %.2f\n",avg);
+    return 0;
 }
