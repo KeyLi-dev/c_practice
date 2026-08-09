@@ -1,4 +1,10 @@
+/*第10章 编程练习第4题
+
+编写一个程序，返回存储在 double 类型数组中的最大值的下标，
+并在一个简单的程序中测试该函数。*/
+
 #include <stdio.h>
+
 #define INDEX 1   // 指针数组里面只放1个一级指针
 
 int input_value(double **pp, int data_len) {
